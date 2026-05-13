@@ -1,5 +1,8 @@
 # ph-dev-utils
 
+[![CI](https://github.com/kon2raya24/ph-dev-utils/actions/workflows/ci.yml/badge.svg)](https://github.com/kon2raya24/ph-dev-utils/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 Filipino developer utilities — peso formatting, government ID validators, PH phone helpers, and address data — for both JavaScript/TypeScript and PHP.
 
 ```
