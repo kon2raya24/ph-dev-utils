@@ -71,11 +71,12 @@ export function parseMobile(input: string): MobileParse | null {
   if (typeof input !== 'string') return null;
   let d = digits(input);
 
-  // Normalize to national form starting with 09
+  // Normalize: strip +63/63 country code, restore leading 0 for 10-digit forms
   if (d.startsWith('63') && d.length === 12) d = '0' + d.slice(2);
-  if (d.startsWith('9') && d.length === 10) d = '0' + d;
+  if (d.length === 10 && /^[89]/.test(d)) d = '0' + d;
 
-  if (d.length !== 11 || !d.startsWith('09')) return null;
+  // PH mobile numbers are 11 digits starting with 08 (DITO) or 09 (Globe/Smart/Sun)
+  if (d.length !== 11 || !/^0[89]/.test(d)) return null;
 
   const prefix = d.slice(0, 4);
   const network = NETWORK_MAP[prefix] ?? null;
