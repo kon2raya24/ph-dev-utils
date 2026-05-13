@@ -1,0 +1,14 @@
+{
+  "name": "ph-dev-utils",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Filipino developer utilities (peso, IDs, phone, address) for JS and PHP.",
+  "workspaces": [
+    "packages/js"
+  ],
+  "scripts": {
+    "build": "npm run build --workspace=@ph-dev-utils/core",
+    "test": "npm run test --workspace=@ph-dev-utils/core"
+  },
+  "license": "MIT"
+}
