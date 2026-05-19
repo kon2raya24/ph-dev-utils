@@ -1,7 +1,10 @@
 # ph-dev-utils
 
+[![npm version](https://img.shields.io/npm/v/@ph-dev-utils/core?label=npm&color=cb3837&logo=npm)](https://www.npmjs.com/package/@ph-dev-utils/core)
+[![Packagist version](https://img.shields.io/packagist/v/phdevutils/core?label=Packagist&color=f28d1a&logo=packagist&logoColor=white)](https://packagist.org/packages/phdevutils/core)
 [![CI](https://github.com/kon2raya24/ph-dev-utils/actions/workflows/ci.yml/badge.svg)](https://github.com/kon2raya24/ph-dev-utils/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Made in PH](https://img.shields.io/badge/made%20in-🇵🇭%20Philippines-0038A8)](https://github.com/kon2raya24)
 
 Filipino developer utilities — peso formatting, government ID validators, PH phone helpers, and address data — for both JavaScript/TypeScript and PHP.
 

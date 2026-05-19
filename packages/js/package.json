@@ -1,6 +1,6 @@
 {
   "name": "@ph-dev-utils/core",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Filipino developer utilities — peso, government IDs, phone, address.",
   "license": "MIT",
   "type": "module",

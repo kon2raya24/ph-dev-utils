@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file. The format 
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-05-19
+
+### Added
+
+- Per-package READMEs at `packages/js/README.md` and `packages/php/README.md`. Previously the npm and Packagist package pages had no description ("No README data found"); now they show full install + usage docs.
+- README badges (npm version, Packagist version, MIT license, Made in PH) on root + per-package READMEs.
+
+### Changed
+
+- No functional changes — pure polish for discoverability on registry pages.
+
 ## [0.1.1] - 2026-05-19
 
 ### Fixed
