@@ -1,4 +1,4 @@
-import prefixes from '../../../data/network-prefixes.json' with { type: 'json' };
+import prefixes from '../data/network-prefixes.json' with { type: 'json' };
 
 export type Network = 'Globe' | 'Smart' | 'Sun' | 'DITO';
 
