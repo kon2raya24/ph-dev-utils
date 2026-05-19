@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file. The format 
 
 ## [Unreleased]
 
+## [0.1.3] - 2026-05-19
+
+### Added
+
+- Full API Reference section in both per-package READMEs. Every public function/class documented with signature, parameters, return type, examples, and edge cases.
+- Cross-language modules table mapping JS ↔ PHP equivalents.
+
+### Changed
+
+- No functional changes — documentation only.
+
 ## [0.1.2] - 2026-05-19
 
 ### Added
