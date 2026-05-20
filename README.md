@@ -8,6 +8,8 @@
 
 Filipino developer utilities — peso formatting, government ID validators, PH phone helpers, and address data — for both JavaScript/TypeScript and PHP.
 
+Part of the `@ph-dev-utils` family: **[ph-payroll](https://github.com/kon2raya24/ph-payroll)** (SSS/PhilHealth/Pag-IBIG/BIR WT — [live demo](https://ph-payroll-demo.vercel.app)) and **[ph-faker](https://github.com/kon2raya24/ph-faker)** (PH fake data).
+
 ```
 ph-dev-utils/
 ├── packages/
