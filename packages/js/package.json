@@ -1,7 +1,7 @@
 {
   "name": "@ph-dev-utils/core",
-  "version": "0.1.3",
-  "description": "Filipino developer utilities — peso, government IDs, phone, address.",
+  "version": "0.2.0",
+  "description": "Filipino developer utilities — peso, government IDs (TIN/SSS/PhilHealth/Pag-IBIG), phone, address (regions/provinces/cities/municipalities), and PH holidays (regular + special, with DOLE pay multipliers).",
   "license": "MIT",
   "type": "module",
   "main": "./dist/index.js",
