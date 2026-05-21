@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file. The format 
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-05-21
+
+### Added
+
+- **PH holidays** — `isHoliday`, `findHoliday`, `nextHoliday`, `listHolidaysOfYear`, `listHolidayYears`, `PAY_MULTIPLIER` (JS) and `PhDevUtils\Holidays::*` (PHP). Bundled data for 2025 (Proclamation 727 + Islamic holiday proclamations) and 2026 (Proclamation 1006 + Eid'l Fitr Proclamation 1189). Each entry tagged with type — `regular` / `special_non_working` / `special_working` — and the DOLE pay multiplier (200% / 130% / 100%) is exposed for direct use in payroll math.
+- **PSGC cities and municipalities** — `listCitiesMunicipalities`, `findCityMunicipality` (JS) and `Address::listCitiesMunicipalities`, `Address::findCityMunicipality` (PHP). Full PSA Q4 2024 dataset: 1,634 entries (146 cities + 1,488 municipalities), with filters by province / region / isCity / isCapital. Name lookup normalizes both "City of X" (PSA's stored form) and "X City" (common spelling).
+- New versioned data files: `data/holidays-2025.json`, `data/holidays-2026.json`, `data/psgc-cities-municipalities-2024.json`. Each with `_meta` (source, source_url, verified_on, notes).
+- 29 new vitest + 24 new PHPUnit tests covering year-supported assertions, type filters, prefix/suffix name normalization, HUC/NCR null-province handling, and boundary cases. **Totals: 63 JS + 52 PHP = 115 tests green.**
+
+### Notes
+
+- PH holidays are proclaimed annually by the Office of the President. Future years are added per package release; pin your dependency if you need a specific year's official list.
+- Eid'l Adha 2026 has not yet been formally proclaimed (as of 2026-05-21). When proclaimed (typically late May / early June), the data file will be updated in a patch release.
+
 ## [0.1.3] - 2026-05-19
 
 ### Added

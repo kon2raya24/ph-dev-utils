@@ -73,13 +73,18 @@ Address::findProvince('Cebu');         // ['code' => '0722', 'name' => 'Cebu', '
 | PhilHealth | `validatePhilHealth`, `formatPhilHealth` | `Validators\PhilHealth::validate`, `Validators\PhilHealth::format` |
 | PagIBIG | `validatePagIBIG`, `formatPagIBIG` | `Validators\PagIbig::validate`, `Validators\PagIbig::format` |
 | Phone | `parseMobile`, `parseLandline` | `Phone::parseMobile`, `Phone::parseLandline` |
-| Address | `listRegions`, `listProvinces`, `findProvince` | `Address::listRegions`, `Address::listProvinces`, `Address::findProvince` |
+| Address (regions/provinces) | `listRegions`, `listProvinces`, `findProvince` | `Address::listRegions`, `Address::listProvinces`, `Address::findProvince` |
+| **Cities & municipalities** (v0.2) | `listCitiesMunicipalities`, `findCityMunicipality` | `Address::listCitiesMunicipalities`, `Address::findCityMunicipality` |
+| **PH holidays** (v0.2) | `isHoliday`, `findHoliday`, `nextHoliday`, `listHolidaysOfYear`, `PAY_MULTIPLIER` | `Holidays::isHoliday`, `Holidays::findHoliday`, `Holidays::nextHoliday`, `Holidays::listHolidaysOfYear`, `Holidays::PAY_MULTIPLIER` |
 
 ## Roadmap
 
-- **v0.1** Peso, government ID validators (format-level), phone normalize + network detect, regions + provinces
-- **v0.2** Cities/municipalities + barangays (PSGC import), PH holidays calendar
-- **v0.3** SSS / PhilHealth / Pag-IBIG contribution calculators, withholding tax, BIR Form 2316 helpers
+- **v0.1** ✅ Peso, government ID validators (format-level), phone normalize + network detect, regions + provinces
+- **v0.2** ✅ PSGC cities/municipalities (1,634 entries), PH holidays calendar for 2025–2026 with DOLE pay multipliers
+- **v0.3** PSGC barangays (separate dataset due to size — ~42k entries), Tagalog `pesoToWords`, PH bank registry (BSP-issued PESONet/InstaPay)
+- **v0.4+** Holidays beyond 2026 as Office of the President issues new annual proclamations
+
+Note: SSS / PhilHealth / Pag-IBIG contribution calculators and BIR withholding tax are now shipped in the sibling package **[ph-payroll](https://github.com/kon2raya24/ph-payroll)** — see the [live demo](https://ph-payroll-demo.vercel.app).
 
 ## Contributing
 

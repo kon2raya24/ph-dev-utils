@@ -9,5 +9,22 @@ export { validatePagIBIG, formatPagIBIG } from './validators/pagibig.js';
 export { parseMobile, parseLandline } from './phone.js';
 export type { MobileParse, LandlineParse, Network } from './phone.js';
 
-export { listRegions, findRegion, listProvinces, findProvince } from './address.js';
-export type { Region, Province } from './address.js';
+export {
+  listRegions,
+  findRegion,
+  listProvinces,
+  findProvince,
+  listCitiesMunicipalities,
+  findCityMunicipality,
+} from './address.js';
+export type { Region, Province, CityMunicipality } from './address.js';
+
+export {
+  isHoliday,
+  findHoliday,
+  nextHoliday,
+  listHolidaysOfYear,
+  listHolidayYears,
+  PAY_MULTIPLIER,
+} from './holidays.js';
+export type { Holiday, HolidayType } from './holidays.js';
