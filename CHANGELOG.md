@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file. The format 
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-05-25
+
+### Added
+
+- **Tagalog `pesoToWords`** — `pesoToWordsFilipino(value)` (JS) and `PhDevUtils\Peso::toWordsFilipino($value)` (PHP). Converts peso amounts to Filipino number-words using check/receipt convention: `12345.67` → `"Labindalawang libo tatlong daan apatnapu't lima at 67/100 piso"`. Handles ligature rules correctly (vowel → `-ng` suffix, ends in `n` → `-g` suffix, ends in `ng` → no change, else → ` na ` word linker), the `daan`/`raan` initial-consonant alternation in hundreds (e.g., `apat na raan` vs `tatlong daan`), and the centavo fraction format common on PH checks. Supports `sero` through `trilyon` (10^12).
+- 14 new vitest + 10 new PHPUnit tests covering zero, single units, teens/tens, hundreds (with both ligature variants), thousands-through-billions, the user-provided worked example, centavos-only amounts, floating-point safety (0.999 → 1 piso), and rejection of negative / too-large inputs. **Totals: 73 JS + 62 PHP = 135 tests green.**
+
+### Notes
+
+- The existing English `pesoToWords` (v0.1+) is unchanged. The new Filipino function is a separate export to avoid breaking existing call sites.
+- BSP bank registry is **deferred to v0.4** — bank-data curation needs a dedicated pass to verify SWIFT codes against the BSP Directory of Banks; rushing it would risk shipping wrong PH data.
+
 ## [0.2.0] - 2026-05-21
 
 ### Added

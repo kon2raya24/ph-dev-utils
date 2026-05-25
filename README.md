@@ -67,7 +67,7 @@ Address::findProvince('Cebu');         // ['code' => '0722', 'name' => 'Cebu', '
 
 | Module | JS | PHP |
 | --- | --- | --- |
-| Peso formatting | `formatPHP`, `parsePHP`, `pesoToWords` | `Peso::format`, `Peso::parse`, `Peso::toWords` |
+| Peso formatting | `formatPHP`, `parsePHP`, `pesoToWords`, **`pesoToWordsFilipino`** (v0.3) | `Peso::format`, `Peso::parse`, `Peso::toWords`, **`Peso::toWordsFilipino`** (v0.3) |
 | TIN | `validateTIN`, `formatTIN` | `Validators\Tin::validate`, `Validators\Tin::format` |
 | SSS | `validateSSS`, `formatSSS` | `Validators\Sss::validate`, `Validators\Sss::format` |
 | PhilHealth | `validatePhilHealth`, `formatPhilHealth` | `Validators\PhilHealth::validate`, `Validators\PhilHealth::format` |
@@ -81,8 +81,10 @@ Address::findProvince('Cebu');         // ['code' => '0722', 'name' => 'Cebu', '
 
 - **v0.1** ✅ Peso, government ID validators (format-level), phone normalize + network detect, regions + provinces
 - **v0.2** ✅ PSGC cities/municipalities (1,634 entries), PH holidays calendar for 2025–2026 with DOLE pay multipliers
-- **v0.3** PSGC barangays (separate dataset due to size — ~42k entries), Tagalog `pesoToWords`, PH bank registry (BSP-issued PESONet/InstaPay)
-- **v0.4+** Holidays beyond 2026 as Office of the President issues new annual proclamations
+- **v0.3** ✅ Tagalog `pesoToWordsFilipino` (check/receipt convention with full ligature handling)
+- **v0.4** PH bank registry (BSP-issued PESONet/InstaPay) — deferred from v0.3 for safer curation
+- **v0.x** PSGC barangays — shipped as a **separate package** `@ph-dev-utils/psgc-barangays` (size; ~42k entries)
+- **vNext** Holidays beyond 2026 as Office of the President issues new annual proclamations
 
 Note: SSS / PhilHealth / Pag-IBIG contribution calculators and BIR withholding tax are now shipped in the sibling package **[ph-payroll](https://github.com/kon2raya24/ph-payroll)** — see the [live demo](https://ph-payroll-demo.vercel.app).
 
@@ -91,7 +93,7 @@ Note: SSS / PhilHealth / Pag-IBIG contribution calculators and BIR withholding t
 PRs welcome — especially:
 - Corrections to network-prefix data (telco prefix reassignments happen)
 - PSGC updates when PSA publishes new codes
-- Translations of `pesoToWords` (currently English; Filipino/Tagalog welcome)
+- Other regional translations of peso-to-words (Filipino ✅ v0.3, English ✅ v0.1 — Cebuano/Ilocano welcome)
 
 ## License
 

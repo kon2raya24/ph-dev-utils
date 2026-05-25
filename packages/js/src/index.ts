@@ -1,4 +1,4 @@
-export { formatPHP, parsePHP, pesoToWords } from './peso.js';
+export { formatPHP, parsePHP, pesoToWords, pesoToWordsFilipino } from './peso.js';
 export type { FormatOptions } from './peso.js';
 
 export { validateTIN, formatTIN } from './validators/tin.js';
