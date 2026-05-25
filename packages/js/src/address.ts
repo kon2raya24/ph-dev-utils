@@ -105,13 +105,17 @@ function normalizeCityName(s: string): string {
 export function findCityMunicipality(query: string): CityMunicipality | null {
   if (typeof query !== 'string' || !query.trim()) return null;
   const q = query.trim().toLowerCase();
-  const normQ = normalizeCityName(query);
-  return (
-    citiesMunicipalities.find(c => {
-      if (c.code === q) return true;
-      const name = c.name.toLowerCase();
-      if (name === q) return true;
-      return normalizeCityName(c.name) === normQ;
-    }) ?? null
+
+  // Pass 1: exact code or exact name match. This guarantees that an unambiguous
+  // query like "Quezon City" returns the literal NCR entry rather than fuzzy-
+  // matching the "Quezon" municipality in Cagayan Valley via the normalizer.
+  const exact = citiesMunicipalities.find(c =>
+    c.code === q || c.name.toLowerCase() === q,
   );
+  if (exact) return exact;
+
+  // Pass 2: fall back to normalized name (strips leading "city of " / trailing
+  // " city") so PSA's "City of Cebu" matches user input "Cebu City" or "Cebu".
+  const normQ = normalizeCityName(query);
+  return citiesMunicipalities.find(c => normalizeCityName(c.name) === normQ) ?? null;
 }

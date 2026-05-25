@@ -86,6 +86,23 @@ describe('cities/municipalities (PSGC Q4 2024)', () => {
     expect(findCityMunicipality('Atlantis')).toBeNull();
   });
 
+  it('prefers exact-name match over normalized fallback (v0.3.1 regression)', () => {
+    // Pre-fix, "Quezon City" normalized to "quezon" and matched the Quezon
+    // municipality in Cagayan Valley (region '02') before reaching the literal
+    // NCR entry. Now the exact-name pass runs first.
+    const qc = findCityMunicipality('Quezon City');
+    expect(qc?.code).toBe('137404');
+    expect(qc?.region).toBe('13');
+    expect(qc?.province).toBeNull();
+  });
+
+  it('still matches "City of Cebu" via normalized fallback', () => {
+    // Regression for the normalized-fallback path: PSA stores "City of Cebu"
+    // but users type "Cebu City" or just "Cebu" — both must still work.
+    expect(findCityMunicipality('Cebu City')?.region).toBe('07');
+    expect(findCityMunicipality('City of Cebu')?.region).toBe('07');
+  });
+
   it('HUC entries have province: null (and include 1 municipality — Pateros)', () => {
     const hucs = listCitiesMunicipalities().filter(c => c.province === null);
     expect(hucs.length).toBe(19);

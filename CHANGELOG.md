@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file. The format 
 
 ## [Unreleased]
 
+## [0.3.1] - 2026-05-25
+
+### Fixed
+
+- **`findCityMunicipality` name-ambiguity bug.** Previously the function did a single iteration that matched on code, exact name, or normalized name in the same pass — and the normalizer fired first whenever the iteration reached an earlier match. As a result, `findCityMunicipality('Quezon City')` returned the "Quezon" *municipality* in Cagayan Valley (region '02') because its normalized name "quezon" matched before the literal NCR entry "Quezon City" was reached. The lookup is now a two-pass scan: exact code/name first, normalized fallback second. Discovered while writing cross-package integration tests in [ph-psgc-barangays](https://github.com/kon2raya24/ph-psgc-barangays). Same fix applied in both JS and PHP.
+- Regression tests added in both languages for `Quezon City` (137404 / region 13) and `Cebu City` / `City of Cebu` (the normalized-fallback path, which must keep working).
+
+### Notes
+
+- No API surface change; this is a behavioral correctness fix. Any caller that was working around the bug by passing the 6-digit code (e.g. `findCityMunicipality('137404')`) continues to work unchanged.
+
 ## [0.3.0] - 2026-05-25
 
 ### Added
