@@ -5,8 +5,12 @@ export { validateTIN, formatTIN } from './validators/tin.js';
 export { validateSSS, formatSSS } from './validators/sss.js';
 export { validatePhilHealth, formatPhilHealth } from './validators/philhealth.js';
 export { validatePagIBIG, formatPagIBIG } from './validators/pagibig.js';
+export { validateNationalID, formatNationalID } from './validators/national-id.js';
+export { validateUMID, formatUMID } from './validators/umid.js';
+export { validatePassport, formatPassport } from './validators/passport.js';
+export { validatePRC, formatPRC } from './validators/prc.js';
 
-export { parseMobile, parseLandline } from './phone.js';
+export { parseMobile, parseLandline, toE164, toNational } from './phone.js';
 export type { MobileParse, LandlineParse, Network } from './phone.js';
 
 export {

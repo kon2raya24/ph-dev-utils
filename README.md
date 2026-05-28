@@ -72,7 +72,11 @@ Address::findProvince('Cebu');         // ['code' => '0722', 'name' => 'Cebu', '
 | SSS | `validateSSS`, `formatSSS` | `Validators\Sss::validate`, `Validators\Sss::format` |
 | PhilHealth | `validatePhilHealth`, `formatPhilHealth` | `Validators\PhilHealth::validate`, `Validators\PhilHealth::format` |
 | PagIBIG | `validatePagIBIG`, `formatPagIBIG` | `Validators\PagIbig::validate`, `Validators\PagIbig::format` |
-| Phone | `parseMobile`, `parseLandline` | `Phone::parseMobile`, `Phone::parseLandline` |
+| **National ID / PhilSys PCN** (v0.4) | `validateNationalID`, `formatNationalID` | `Validators\NationalId::validate`, `Validators\NationalId::format` |
+| **UMID CRN** (v0.4) | `validateUMID`, `formatUMID` | `Validators\Umid::validate`, `Validators\Umid::format` |
+| **Passport** (v0.4) | `validatePassport`, `formatPassport` | `Validators\Passport::validate`, `Validators\Passport::format` |
+| **PRC license** (v0.4) | `validatePRC`, `formatPRC` | `Validators\Prc::validate`, `Validators\Prc::format` |
+| Phone | `parseMobile`, `parseLandline`, **`toE164`**, **`toNational`** (v0.4) | `Phone::parseMobile`, `Phone::parseLandline`, **`Phone::toE164`**, **`Phone::toNational`** |
 | Address (regions/provinces) | `listRegions`, `listProvinces`, `findProvince` | `Address::listRegions`, `Address::listProvinces`, `Address::findProvince` |
 | **Cities & municipalities** (v0.2) | `listCitiesMunicipalities`, `findCityMunicipality` | `Address::listCitiesMunicipalities`, `Address::findCityMunicipality` |
 | **PH holidays** (v0.2) | `isHoliday`, `findHoliday`, `nextHoliday`, `listHolidaysOfYear`, `PAY_MULTIPLIER` | `Holidays::isHoliday`, `Holidays::findHoliday`, `Holidays::nextHoliday`, `Holidays::listHolidaysOfYear`, `Holidays::PAY_MULTIPLIER` |
@@ -82,8 +86,10 @@ Address::findProvince('Cebu');         // ['code' => '0722', 'name' => 'Cebu', '
 - **v0.1** ✅ Peso, government ID validators (format-level), phone normalize + network detect, regions + provinces
 - **v0.2** ✅ PSGC cities/municipalities (1,634 entries), PH holidays calendar for 2025–2026 with DOLE pay multipliers
 - **v0.3** ✅ Tagalog `pesoToWordsFilipino` (check/receipt convention with full ligature handling)
-- **v0.4** PH bank registry (BSP-issued PESONet/InstaPay) — deferred from v0.3 for safer curation
-- **v0.x** PSGC barangays — shipped as a **separate package** `@ph-dev-utils/psgc-barangays` (size; ~42k entries)
+- **v0.4** ✅ More ID validators (PhilSys National ID / UMID CRN / passport / PRC, all format-level) + phone `toE164` / `toNational` normalization
+- **v0.5** LTO plate numbers & driver's license validators (format sprawl — needs its own verification pass)
+- **separate package** PH bank registry (BSP-issued PESONet/InstaPay) — moving out of core into a dedicated `ph-banks` package to keep core lean; accuracy-sensitive, needs careful curation
+- **separate package** PSGC barangays — shipped as `@ph-dev-utils/psgc-barangays` (size; ~42k entries)
 - **vNext** Holidays beyond 2026 as Office of the President issues new annual proclamations
 
 Note: SSS / PhilHealth / Pag-IBIG contribution calculators and BIR withholding tax are now shipped in the sibling package **[ph-payroll](https://github.com/kon2raya24/ph-payroll)** — see the [live demo](https://ph-payroll-demo.vercel.app).

@@ -1,7 +1,7 @@
 {
   "name": "@ph-dev-utils/core",
-  "version": "0.3.1",
-  "description": "Filipino developer utilities — peso (incl. Tagalog number-words), government IDs (TIN/SSS/PhilHealth/Pag-IBIG), phone, address (regions/provinces/cities/municipalities), and PH holidays (regular + special, with DOLE pay multipliers).",
+  "version": "0.4.0",
+  "description": "Filipino developer utilities — peso (incl. Tagalog number-words), government IDs (TIN/SSS/PhilHealth/Pag-IBIG/PhilSys National ID/UMID/passport/PRC), phone (parse + E.164 normalize), address (regions/provinces/cities/municipalities), and PH holidays (regular + special, with DOLE pay multipliers).",
   "license": "MIT",
   "type": "module",
   "main": "./dist/index.js",
@@ -31,6 +31,11 @@
     "sss",
     "philhealth",
     "pagibig",
+    "philsys",
+    "national-id",
+    "umid",
+    "passport",
+    "prc",
     "psgc",
     "validation"
   ],

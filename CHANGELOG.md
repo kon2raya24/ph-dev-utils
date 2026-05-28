@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file. The format 
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-05-28
+
+### Added
+
+- **More government-ID validators** (all format-level only, no checksum — consistent with the existing TIN/SSS/PhilHealth/Pag-IBIG stance):
+  - **PhilSys National ID** — `validateNationalID` / `formatNationalID` (JS), `Validators\NationalId::validate` / `::format` (PHP). Validates the **16-digit PhilSys Card Number (PCN)** printed on the PhilID, formatted `XXXX-XXXX-XXXX-XXXX`. Deliberately does **not** validate the 12-digit PhilSys Number (PSN), which is never disclosed — a 12-digit input is rejected.
+  - **UMID CRN** — `validateUMID` / `formatUMID` (JS), `Validators\Umid::*` (PHP). 12-digit Common Reference Number, formatted `####-#######-#`.
+  - **Passport** — `validatePassport` / `formatPassport` (JS), `Validators\Passport::*` (PHP). Accepts both current 9-character forms: ePassport (`L` + 7 digits + `L`, e.g. `P1234567A`) and the 2005–2016 machine-readable form (2 letters + 7 digits). Case-insensitive input; normalizes to uppercase.
+  - **PRC license** — `validatePRC` / `formatPRC` (JS), `Validators\Prc::*` (PHP). 7-digit professional registration number.
+- **Phone E.164 / national normalization** — `toE164` and `toNational` (JS), `Phone::toE164` / `Phone::toNational` (PHP). Convert any recognized PH mobile or landline (`+63` / `63` / `0` / formatted forms) to canonical `+63…` or `0…`; return `null` when unparseable. Built on the existing `parseMobile` / `parseLandline`.
+- New tests covering each ID's valid/invalid shapes and the phone normalizers across mobile + landline + all trunk forms.
+
+### Notes
+
+- Each format was verified against an authoritative source before locking (PSA/PhilSys for the PCN, SSS for the UMID CRN, DFA for passport patterns, PRC for the registration number).
+- **BSP bank registry** (previously the v0.4 roadmap item) is being moved out of core into a dedicated `ph-banks` package rather than bundled here — keeps core lean and isolates the accuracy-sensitive bank/SWIFT curation.
+- LTO plate numbers and driver's license validators are deferred to v0.5 (their format variants need a separate verification pass).
+
 ## [0.3.1] - 2026-05-25
 
 ### Fixed

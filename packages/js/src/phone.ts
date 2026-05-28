@@ -115,3 +115,18 @@ export function parseLandline(input: string): LandlineParse | null {
   }
   return null;
 }
+
+// E.164 form (+63…) for any recognized PH mobile or landline; null if unparseable.
+export function toE164(input: string): string | null {
+  const mobile = parseMobile(input);
+  if (mobile) return mobile.e164;
+  const landline = parseLandline(input);
+  if (landline) return landline.e164;
+  return null;
+}
+
+// National trunk form (0…) for any recognized PH mobile or landline; null if unparseable.
+export function toNational(input: string): string | null {
+  const e164 = toE164(input);
+  return e164 ? '0' + e164.slice(3) : null;
+}
