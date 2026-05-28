@@ -7,6 +7,8 @@ import { validateNationalID, formatNationalID } from '../src/validators/national
 import { validateUMID, formatUMID } from '../src/validators/umid';
 import { validatePassport, formatPassport } from '../src/validators/passport';
 import { validatePRC, formatPRC } from '../src/validators/prc';
+import { validateDriversLicense, formatDriversLicense } from '../src/validators/drivers-license';
+import { validatePlate, parsePlate } from '../src/validators/plate';
 
 describe('TIN', () => {
   it('accepts 9-digit', () => {
@@ -93,5 +95,34 @@ describe('PRC license', () => {
   it('rejects wrong length', () => {
     expect(validatePRC('123456')).toBe(false);
     expect(formatPRC('12345678')).toBeNull();
+  });
+});
+
+describe("driver's license", () => {
+  it('accepts letter + 10 digits and formats X##-##-######', () => {
+    expect(validateDriversLicense('N02-12-345678')).toBe(true);
+    expect(validateDriversLicense('n0212345678')).toBe(true);
+    expect(formatDriversLicense('N0212345678')).toBe('N02-12-345678');
+  });
+  it('rejects bad shapes', () => {
+    expect(validateDriversLicense('0212345678')).toBe(false); // no leading letter
+    expect(validateDriversLicense('N02-12-34567')).toBe(false); // too short
+    expect(formatDriversLicense('nope')).toBeNull();
+  });
+});
+
+describe('plate number', () => {
+  it('recognizes 4-wheel plates (3 letters + 3-4 digits)', () => {
+    expect(parsePlate('ABC 1234')?.type).toBe('car');
+    expect(parsePlate('NBC123')?.type).toBe('car');
+    expect(validatePlate('abc-1234')).toBe(true);
+  });
+  it('recognizes motorcycle plates (old + 2023 series)', () => {
+    expect(parsePlate('AB 12345')?.type).toBe('motorcycle');
+    expect(parsePlate('A123BC')?.type).toBe('motorcycle'); // new 1L+3D+2L
+  });
+  it('rejects non-standard shapes', () => {
+    expect(validatePlate('12345')).toBe(false);
+    expect(parsePlate('ABCD12345')).toBeNull();
   });
 });

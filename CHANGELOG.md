@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file. The format 
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-05-28
+
+### Added
+
+- **Driver's license validator** — `validateDriversLicense` / `formatDriversLicense` (JS), `Validators\DriversLicense::validate` / `::format` (PHP). LTO format `X##-##-######` (1 letter + 10 digits, e.g. `N02-12-345678`). Format-level only.
+- **Plate-number validator** — `validatePlate` / `parsePlate` (JS), `Validators\Plate::validate` / `::parse` (PHP). Recognizes the standard 4-wheel (`3 letters + 3-4 digits`) and motorcycle (`2 letters + 4-5 digits`, or the 2023+ `1 letter + 3 digits + 2 letters`) series, returning `type: 'car' | 'motorcycle'`. Format-level; standard private/MC plates only (not specialty/government/diplomatic/temporary).
+- Tests added in both languages.
+
+### Notes
+
+- Both are format-level (no checksum), consistent with the existing ID validators. Plate coverage is intentionally scoped to the documented standard series.
+
 ## [0.4.0] - 2026-05-28
 
 ### Added

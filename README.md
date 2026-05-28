@@ -76,6 +76,8 @@ Address::findProvince('Cebu');         // ['code' => '0722', 'name' => 'Cebu', '
 | **UMID CRN** (v0.4) | `validateUMID`, `formatUMID` | `Validators\Umid::validate`, `Validators\Umid::format` |
 | **Passport** (v0.4) | `validatePassport`, `formatPassport` | `Validators\Passport::validate`, `Validators\Passport::format` |
 | **PRC license** (v0.4) | `validatePRC`, `formatPRC` | `Validators\Prc::validate`, `Validators\Prc::format` |
+| **Driver's license** (v0.5) | `validateDriversLicense`, `formatDriversLicense` | `Validators\DriversLicense::validate`, `Validators\DriversLicense::format` |
+| **Plate number** (v0.5) | `validatePlate`, `parsePlate` (→ `car`/`motorcycle`) | `Validators\Plate::validate`, `Validators\Plate::parse` |
 | Phone | `parseMobile`, `parseLandline`, **`toE164`**, **`toNational`** (v0.4) | `Phone::parseMobile`, `Phone::parseLandline`, **`Phone::toE164`**, **`Phone::toNational`** |
 | Address (regions/provinces) | `listRegions`, `listProvinces`, `findProvince` | `Address::listRegions`, `Address::listProvinces`, `Address::findProvince` |
 | **Cities & municipalities** (v0.2) | `listCitiesMunicipalities`, `findCityMunicipality` | `Address::listCitiesMunicipalities`, `Address::findCityMunicipality` |
