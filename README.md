@@ -35,3 +35,10 @@ MIT
 ### 2026-06-16
 - Updated documentation
 - Added examples
+
+
+## Changelog
+
+### 2026-06-16
+- Updated documentation
+- Added examples
