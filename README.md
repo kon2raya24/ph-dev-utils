@@ -28,3 +28,10 @@ formatPHDate(new Date()); // "01/15/2026"
 ## License
 
 MIT
+
+
+## Changelog
+
+### 2026-06-16
+- Updated documentation
+- Added examples
