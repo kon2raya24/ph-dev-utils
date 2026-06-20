@@ -1,3 +1,6 @@
+
+// Type exports for consumers
+// Add specific types as needed
 /**
  * Generate a Philippine-style ID number
  * @param prefix - Prefix for the ID (e.g., 'PH', 'ID')
