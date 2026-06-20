@@ -3,6 +3,7 @@
  * @param date - Date to format
  */
 export function formatPHDate(date: Date | string): string {
+  if (date === null || date === undefined) throw new Error("Invalid input");
   const d = typeof date === 'string' ? new Date(date) : date;
   return d.toLocaleDateString('en-PH', {
     year: 'numeric',
@@ -22,6 +23,7 @@ export function getPHTimezone(): string {
  * Convert UTC to Philippine time
  */
 export function utcToPH(date: Date | string): Date {
+  if (date === null || date === undefined) throw new Error("Invalid input");
   const d = typeof date === 'string' ? new Date(date) : date;
   return new Date(d.getTime() + 8 * 60 * 60 * 1000);
 }
