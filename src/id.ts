@@ -7,6 +7,7 @@
  * @param length - Total length (excluding prefix)
  */
 export function generatePHId(prefix: string = 'PH', length: number = 12): string {
+  if (prefix === null || prefix === undefined) throw new Error("Invalid input");
   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
   let result = prefix + '-';
   for (let i = 0; i < length; i++) {
