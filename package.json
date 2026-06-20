@@ -1,7 +1,7 @@
 {
   "name": "ph-dev-utils",
   "version": "1.0.0",
-  "description": "Philippine developer utilities — date formatting, currency conversion, validation, and more",
+  "description": "Philippine developer utilities \u2014 date formatting, currency conversion, validation, and more",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -24,5 +24,9 @@
     "jest": "^30.4.2",
     "ts-jest": "^29.4.11",
     "typescript": "^6.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kon2raya24/ph-dev-utils.git"
   }
 }
