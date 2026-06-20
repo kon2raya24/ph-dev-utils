@@ -28,5 +28,10 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/kon2raya24/ph-dev-utils.git"
-  }
+  },
+  "files": [
+    "dist/",
+    "README.md",
+    "LICENSE"
+  ]
 }
