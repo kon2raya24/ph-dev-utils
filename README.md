@@ -49,3 +49,9 @@ MIT
 ### 2026-06-16
 - Updated documentation
 - Added examples
+
+
+## API
+
+See source code and JSDoc comments for full API documentation.
+All exported functions include TypeScript types.
